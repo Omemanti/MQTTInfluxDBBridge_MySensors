@@ -1,4 +1,8 @@
 # MQTTInfluxDBBridge_MySensors
+
+
+#### STILL WIP #####
+
 Its a copy of the MQTTInfluxDBBridge found on : https://diyi0t.com/
 All credits go to him.
 
