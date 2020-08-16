@@ -50,6 +50,7 @@ def getTypeData(mysensorsValue_json,x):
                         MysensorsProp.Comment=typenr["Comment"]
                         return
 
+
 mysensorsValue_json = [
     
         {
