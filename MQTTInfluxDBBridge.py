@@ -42,106 +42,16 @@ class MySensorClass:
 
 MysensorsProp = MySensorClass()
 
-def getTypeData(mysensorsValue_json,x):
+def getTypeData(mysensorsValue_json,inctype):
         print("start get TypeData")
         for typenr in mysensorsValue_json:
-                if typenr["value"]:
+                if typenr["value"] == inctype:
                         MysensorsProp.type=typenr["type"]
                         MysensorsProp.Comment=typenr["Comment"]
                         return
 
 
-mysensorsValue_json = [
-    
-        {
-        "value":0,
-        "type" : "V_TEMP",
-        "Comment" : "Temperature"
-        },
-        {
-        "value":1,
-        "type" : "V_HUM",
-        "Comment" : "Humidity"
-        },
-        {
-        "value":2,
-        "type" : "V_STATUS",
-        "Comment" : "Binary status. 0=off 1=on"
-        },
-        {
-        "value":3,
-        "type" : "V_PERCENTAGE",
-        "Comment" : "Percentage value. 0-100 (%)"
-        },
-        {
-        "value":4,
-        "type" : "V_PRESSURE",
-        "Comment" : "Atmospheric Pressure",
-        },
-        {
-        "value":5,
-        "type" : "V_FORECAST",
-        "Comment" : "Whether forecast",
-        },
-        {
-        "value":6,
-        "type" : "V_RAIN",
-        "Comment" : "Amount of rain"
-        },
-        {
-        "value":7,
-        "type" : "V_RAINRATE",
-        "Comment" : "Rate of rain"
-        },
-        {
-        "value":8,
-        "type" : "V_WIND",
-        "Comment" : "Windspeed"
-        },
-                {
-        "value":9,
-        "type" : "V_GUST",
-        "Comment" : "Gust"
-        },
-                {
-        "value":10,
-        "type" : "V_DIRECTION",
-        "Comment" : "Wind direction 0-360 (degrees)"
-        },
-                {
-        "value":11,
-        "type" : "V_UV",
-        "Comment" : "UV light level	"
-        },
-                {
-        "value":12,
-        "type" : "V_WEIGHT",
-        "Comment" : "Weight (for scales etc)	"
-        },
-                {
-        "value":13,
-        "type" : "V_DISTANCE",
-        "Comment" : "Distance"
-        },
-################# SKIPPED A LOT #########
-                {
-        "value":38,
-        "type" : "V_VOLTAGE",
-        "Comment" : "Voltage level"
-        },
-                {
-        "value":39,
-        "type" : "V_CURRENT",
-        "Comment" : "Current level"
-        },
-                {
-        "value":47,
-        "type" : "V_TEXT",
-        "Comment" : "Text message to display on LCD or controller device"
-        },           
-        
-    
-]
+
 
 
 def on_connect(client, userdata, flags, rc):
@@ -171,10 +81,15 @@ def _parse_mqtt_message(topic, payload):
         #print('x =', x)
         print(match.group(5))
         value = match.group(1)
-        
+
         SensorTypeInt = match.group(5)
         SensorTypeInt = int(SensorTypeInt)
         print('SensorTypeInt =>', type(SensorTypeInt))
+
+###### NEW EDIT
+        getTypeData(mysensorsValue_json,SensorTypeInt)
+        print(MysensorsProp.type)
+        print(MysensorsProp.Comment)
 
         print('value =>', type(value))
         if SensorTypeInt == 0:
@@ -300,3 +215,96 @@ def main():
 if __name__ == '__main__':
     print('MQTT to InfluxDB bridge')
     main()
+
+
+mysensorsValue_json = [
+    
+        {
+        "value":0,
+        "type" : "V_TEMP",
+        "Comment" : "Temperature"
+        },
+        {
+        "value":1,
+        "type" : "V_HUM",
+        "Comment" : "Humidity"
+        },
+        {
+        "value":2,
+        "type" : "V_STATUS",
+        "Comment" : "Binary status. 0=off 1=on"
+        },
+        {
+        "value":3,
+        "type" : "V_PERCENTAGE",
+        "Comment" : "Percentage value. 0-100 (%)"
+        },
+        {
+        "value":4,
+        "type" : "V_PRESSURE",
+        "Comment" : "Atmospheric Pressure",
+        },
+        {
+        "value":5,
+        "type" : "V_FORECAST",
+        "Comment" : "Whether forecast",
+        },
+        {
+        "value":6,
+        "type" : "V_RAIN",
+        "Comment" : "Amount of rain"
+        },
+        {
+        "value":7,
+        "type" : "V_RAINRATE",
+        "Comment" : "Rate of rain"
+        },
+        {
+        "value":8,
+        "type" : "V_WIND",
+        "Comment" : "Windspeed"
+        },
+                {
+        "value":9,
+        "type" : "V_GUST",
+        "Comment" : "Gust"
+        },
+                {
+        "value":10,
+        "type" : "V_DIRECTION",
+        "Comment" : "Wind direction 0-360 (degrees)"
+        },
+                {
+        "value":11,
+        "type" : "V_UV",
+        "Comment" : "UV light level	"
+        },
+                {
+        "value":12,
+        "type" : "V_WEIGHT",
+        "Comment" : "Weight (for scales etc)	"
+        },
+                {
+        "value":13,
+        "type" : "V_DISTANCE",
+        "Comment" : "Distance"
+        },
+################# SKIPPED A LOT #########
+                {
+        "value":38,
+        "type" : "V_VOLTAGE",
+        "Comment" : "Voltage level"
+        },
+                {
+        "value":39,
+        "type" : "V_CURRENT",
+        "Comment" : "Current level"
+        },
+                {
+        "value":47,
+        "type" : "V_TEXT",
+        "Comment" : "Text message to display on LCD or controller device"
+        },           
+        
+    
+]
