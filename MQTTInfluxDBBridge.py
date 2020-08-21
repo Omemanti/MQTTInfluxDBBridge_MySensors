@@ -125,6 +125,7 @@ class SensorData(NamedTuple):
     Ack : str
     SensorType : str
     value: float
+    Comment : str
 
 ##### Mysensors
 
@@ -186,7 +187,7 @@ def _parse_mqtt_message(topic, payload):
         print("MysensorsProp.Comment :", MysensorsProp.Comment)
 
         print('2. value =>', type(value))
-                
+        SensorT        
         measurement =  MysensorsProp.type
         print(type(measurement))
         print('3. measurement : ', measurement)
@@ -205,19 +206,21 @@ def _parse_mqtt_message(topic, payload):
         ##5
         # measurement =  match.group(5)
         # print('measurement 5 : ', measurement,type(measurement))
-        
+        Comment = MysensorsProp.Comment
+        SensorType = MysensorsProp.type
+
         value = payload
         print('value : ',value, type(value))
         print('meas incomming')    
         print(datetime.datetime.now()) 
         time = datetime.datetime.now()
         print(time)
-        print('DATA_STORED: measurement: ',measurement, " Node_ID: ", Node_ID," : ", Child_ID," - ", Command," - ", Ack," - ", SensorType," - ", float(value))
+        print('DATA_STORED: measurement: ',measurement, " Node_ID: ", Node_ID," : ", Child_ID," - ", Command," - ", Ack," - ", SensorType," - ", float(value) , " - ", Comment)
 
         if measurement == 'status':
             return None
         print('1')
-        return SensorData(measurement, Node_ID, Child_ID, Command, Ack, SensorType, float(value))
+        return SensorData(measurement, Node_ID, Child_ID, Command, Ack, SensorType, float(value), Comment)
     else:   
         print('3')
         return None
