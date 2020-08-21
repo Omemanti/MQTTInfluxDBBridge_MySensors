@@ -124,8 +124,9 @@ class SensorData(NamedTuple):
     Command: str
     Ack : str
     SensorType : str
-    value: float
     Comment : str
+    value: float
+    
 
 ##### Mysensors
 
@@ -187,7 +188,7 @@ def _parse_mqtt_message(topic, payload):
         print("MysensorsProp.Comment :", MysensorsProp.Comment)
 
         print('2. value =>', type(value))
-        SensorT        
+                
         measurement =  MysensorsProp.type
         print(type(measurement))
         print('3. measurement : ', measurement)
@@ -208,7 +209,6 @@ def _parse_mqtt_message(topic, payload):
         # print('measurement 5 : ', measurement,type(measurement))
         Comment = MysensorsProp.Comment
         SensorType = MysensorsProp.type
-
         value = payload
         print('value : ',value, type(value))
         print('meas incomming')    
@@ -220,7 +220,7 @@ def _parse_mqtt_message(topic, payload):
         if measurement == 'status':
             return None
         print('1')
-        return SensorData(measurement, Node_ID, Child_ID, Command, Ack, SensorType, float(value), Comment)
+        return SensorData(measurement, Node_ID, Child_ID, Command, Ack, SensorType, Comment, float(value))
     else:   
         print('3')
         return None
@@ -239,7 +239,8 @@ def _send_sensor_data_to_influxdb(sensor_data):
                 'Child_ID': sensor_data.Child_ID,
                 'Command': sensor_data.Command,
                 'Ack': sensor_data.Ack,
-                'SensorType' : sensor_data.SensorType
+                'SensorType' : sensor_data.SensorType,
+                'Comment' : sensor_data.Comment
             },
             "fields": {
                 'value': sensor_data.value,
