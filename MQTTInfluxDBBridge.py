@@ -183,38 +183,17 @@ def _parse_mqtt_message(topic, payload):
         print("mysensors_dev")
   
         getTypeData(mysensorsValue_json,SensorTypeInt)
-        print("getTypeData")
+        print("1. getTypeData")
         print(MysensorsProp.type)
         print(MysensorsProp.Comment)
-
-        print('value =>', type(value))
-        if SensorTypeInt == 0:
-            SensorType = 'V_TEMP'
-            print ('It was 0/Temp')
-            print(x)
-        if SensorTypeInt == 1:
-            SensorType = 'V_HUM'
-            print ('It was 1/hum')
-        if SensorTypeInt == 2:
-            SensorType = 'V_STATUS'
-            print ('It was 2/V_STATUS')
-        if SensorTypeInt == 16:
-            SensorType = 'V_TRIPPED'
-            print ('It was 16/V_TRIPPED')
-        if SensorTypeInt == 22:
-            SensorType = 'MQTT-GATEWAY-HEARTBEAT'
-            print ('It was 22/Heartbeat')
-                
-        else:
-            print ('Broke out of the loop')
-         
         
+
         measurement =  SensorType
         print(type(measurement))
-        print('measurement : ', measurement)
+        print('2. measurement : ', measurement)
         ##1
         Node_ID =  match.group(1)
-        print('Node_ID : ', Node_ID, type(Node_ID))
+        print('3. Node_ID : ', Node_ID, type(Node_ID))
         ## 2
         Child_ID =  match.group(2)
         print('Child_ID : ', Child_ID, type(Child_ID))
