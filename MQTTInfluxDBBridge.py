@@ -177,23 +177,22 @@ def _parse_mqtt_message(topic, payload):
 
         SensorTypeInt = match.group(5)
         SensorTypeInt = int(SensorTypeInt)
-        print('SensorTypeInt =>', type(SensorTypeInt))
+        #print('SensorTypeInt =>', type(SensorTypeInt))
 
 ###### NEW EDIT
-        print("mysensors_dev")
-  
         getTypeData(mysensorsValue_json,SensorTypeInt)
         print("1. getTypeData")
-        print(MysensorsProp.type)
-        print(MysensorsProp.Comment)
-        
+        print("MysensorsProp.type :", MysensorsProp.type)
+        print("MysensorsProp.Comment :", MysensorsProp.Comment)
 
-        measurement =  SensorType
+        print('2. value =>', type(value))
+                
+        measurement =  MysensorsProp.type
         print(type(measurement))
-        print('2. measurement : ', measurement)
+        print('3. measurement : ', measurement)
         ##1
         Node_ID =  match.group(1)
-        print('3. Node_ID : ', Node_ID, type(Node_ID))
+        print('4. Node_ID : ', Node_ID, type(Node_ID))
         ## 2
         Child_ID =  match.group(2)
         print('Child_ID : ', Child_ID, type(Child_ID))
