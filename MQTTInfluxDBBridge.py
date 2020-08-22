@@ -3,7 +3,6 @@ import re
 
 import datetime
 
-
 from typing import NamedTuple
 
 import paho.mqtt.client as mqtt
@@ -13,6 +12,7 @@ INFLUXDB_ADDRESS = '127.0.0.1'
 INFLUXDB_USER = 'mqtt'
 INFLUXDB_PASSWORD = 'mqtt'
 INFLUXDB_DATABASE = 'my_sensors_dev'
+INFLUXDB_DATABASE_Nodes = 'my_sensors_Nodes'
 
 MQTT_ADDRESS = '127.0.0.1' 
 MQTT_USER = ''
@@ -25,12 +25,15 @@ influxdb_client = InfluxDBClient(INFLUXDB_ADDRESS, 8086 , INFLUXDB_USER, INFLUXD
 
 print("dev")
 
+
+
+## Json
 ## Load JSon Presentation values
 OpenPresJson = open("mysensorsPresValue.json")
 LoadPresJson = json.load(OpenPresJson)
 
 
-
+##Classes and objects
 class SensorData(NamedTuple):
     Measurement: str
     Node_ID: str
@@ -40,9 +43,6 @@ class SensorData(NamedTuple):
     SensorType : str
     Comment : str
     value: float
-    
-
-##### Mysensors
 
 class MySensorClass:
         value = int
@@ -58,7 +58,6 @@ def getTypeData(mysensorsValue_json,inctype):
                         MysensorsProp.type=typenr["type"]
                         MysensorsProp.Comment=typenr["Comment"]
                         return
-
 
 
 def on_connect(client, userdata, flags, rc):
@@ -120,6 +119,8 @@ def _parse_mqtt_message(topic, payload):
         
         value = payload
         time = datetime.datetime.now()
+        print(time)
+        time.strftime('%l:%M%p %Z on %b %d, %Y') # ' 1:36PM EDT on Oct 18, 2010'
         print('DATA_STORED: measurement: ',measurement, " Node_ID: ", Node_ID," : ", Child_ID," - ", Command," - ", Ack," - ", SensorType," - ", float(value) , " - ", Comment)
 
         if measurement == 'status':
