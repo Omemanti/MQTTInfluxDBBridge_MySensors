@@ -25,8 +25,6 @@ influxdb_client = InfluxDBClient(INFLUXDB_ADDRESS, 8086 , INFLUXDB_USER, INFLUXD
 
 print("dev")
 
-
-
 ## Json
 ## Load JSon Presentation values
 OpenPresJson = open("mysensorsPresValue.json")
