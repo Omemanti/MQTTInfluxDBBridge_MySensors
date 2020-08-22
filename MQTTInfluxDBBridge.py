@@ -24,7 +24,7 @@ MQTT_CLIENT_ID = 'MQTTInfluxDBBridge'
 influxdb_client = InfluxDBClient(INFLUXDB_ADDRESS, 8086 , INFLUXDB_USER, INFLUXDB_PASSWORD, None)
 
 print("dev")
-mysensorsValue_json = [
+mysensorsPresValue_json = [
     
         {
         "value":0,
@@ -96,7 +96,13 @@ mysensorsValue_json = [
         "type" : "V_DISTANCE",
         "Comment" : "Distance"
         },
+
 ################# SKIPPED A LOT #########
+                {
+        "value":16,
+        "type" : "V_TRIPPED",
+        "Comment" : "Tripped status of a security sensor"
+        },
                 {
         "value":38,
         "type" : "V_VOLTAGE",
@@ -169,60 +175,51 @@ def _parse_mqtt_message(topic, payload):
     print('after match')
     if match:
         
-        #print('inside match')
-        t = 42  
-        #print('t =', t)
-        x = 0
-        #print('x =', x)
-        print(match.group(5))
-        value = match.group(1)
+        ## Check Command, 0. presentation 1. Set (data) 2. request(data) 3. Internal 4. Stream 
+        Command =  int(match.group(3))
+        print(Command)
+        
 
-        SensorTypeInt = match.group(5)
-        SensorTypeInt = int(SensorTypeInt)
-        #print('SensorTypeInt =>', type(SensorTypeInt))
+        ## if Command = 0
+            #PresValue()
+            #measurement = Pers
+        if Command == 1:
+            print("Parsing Pres")
+            getTypeData(mysensorsPresValue_json,int(match.group(5)))                
+            measurement =  "Pres" 
+            SensorType = MysensorsProp.type
+            Comment = MysensorsProp.Comment
+            Node_ID =  match.group(1)
+            Child_ID =  match.group(2)
+            Ack =  match.group(4)
 
-###### NEW EDIT
-        getTypeData(mysensorsValue_json,SensorTypeInt)
-        print("1. getTypeData")
-        print("MysensorsProp.type :", MysensorsProp.type)
-        print("MysensorsProp.Comment :", MysensorsProp.Comment)
+            #SetValue()
+            #measurement = Set
+        ## if Command = 2
+            #ReqValue()
+            #measurement = Req
+        ## if Command = 3
+            #IntValue()
+            #measurement = Int
+        ## if Command = 4
+            #StreamValue()
+            #measurement = Stream      
 
-        print('2. value =>', type(value))
-                
-        measurement =  MysensorsProp.type
-        print(type(measurement))
-        print('3. measurement : ', measurement)
-        ##1
-        Node_ID =  match.group(1)
-        print('4. Node_ID : ', Node_ID, type(Node_ID))
-        ## 2
-        Child_ID =  match.group(2)
-        print('Child_ID : ', Child_ID, type(Child_ID))
-        ## 3
-        Command =  match.group(3)
-        print('Command : ', Command, type(Command))
-        ## 4
-        Ack =  match.group(4)
-        print('Ack : ', Ack,type(Ack))
-        ##5
-        # measurement =  match.group(5)
-        # print('measurement 5 : ', measurement,type(measurement))
-        Comment = MysensorsProp.Comment
-        SensorType = MysensorsProp.type
+
+        ##
+        ##SensorTypeInt = match.group(5)
+        ##SensorTypeInt = int(SensorTypeInt)
+        
+        
+        
         value = payload
-        print('value : ',value, type(value))
-        print('meas incomming')    
-        print(datetime.datetime.now()) 
         time = datetime.datetime.now()
-        print(time)
         print('DATA_STORED: measurement: ',measurement, " Node_ID: ", Node_ID," : ", Child_ID," - ", Command," - ", Ack," - ", SensorType," - ", float(value) , " - ", Comment)
 
         if measurement == 'status':
             return None
-        print('1')
         return SensorData(measurement, Node_ID, Child_ID, Command, Ack, SensorType, Comment, float(value))
     else:   
-        print('3')
         return None
     print('end')
 
