@@ -1,0 +1,92 @@
+[
+        {
+        "value":0,
+        "type" : "V_TEMP",
+        "Comment" : "Temperature"
+        },
+        {
+        "value":1,
+        "type" : "V_HUM",
+        "Comment" : "Humidity"
+        },
+        {
+        "value":2,
+        "type" : "V_STATUS",
+        "Comment" : "Binary status. 0=off 1=on"
+        },
+        {
+        "value":3,
+        "type" : "V_PERCENTAGE",
+        "Comment" : "Percentage value. 0-100 (%)"
+        },
+        {
+        "value":4,
+        "type" : "V_PRESSURE",
+        "Comment" : "Atmospheric Pressure"
+        },
+        {
+        "value":5,
+        "type" : "V_FORECAST",
+        "Comment" : "Whether forecast"
+        },
+        {
+        "value":6,
+        "type" : "V_RAIN",
+        "Comment" : "Amount of rain"
+        },
+        {
+        "value":7,
+        "type" : "V_RAINRATE",
+        "Comment" : "Rate of rain"
+        },
+        {
+        "value":8,
+        "type" : "V_WIND",
+        "Comment" : "Windspeed"
+        },
+                {
+        "value":9,
+        "type" : "V_GUST",
+        "Comment" : "Gust"
+        },
+                {
+        "value":10,
+        "type" : "V_DIRECTION",
+        "Comment" : "Wind direction 0-360 (degrees)"
+        },
+                {
+        "value":11,
+        "type" : "V_UV",
+        "Comment" : "UV_light_level"
+        },
+                {
+        "value":12,
+        "type" : "V_WEIGHT",
+        "Comment" : "Weight"
+        },
+                {
+        "value":13,
+        "type" : "V_DISTANCE",
+        "Comment" : "Distance"
+        },
+                {
+        "value":16,
+        "type" : "V_TRIPPED",
+        "Comment" : "Tripped status of a security sensor"
+        },
+                {
+        "value":38,
+        "type" : "V_VOLTAGE",
+        "Comment" : "Voltage level"
+        },
+                {
+        "value":39,
+        "type" : "V_CURRENT",
+        "Comment" : "Current level"
+        },
+                {
+        "value":47,
+        "type" : "V_TEXT",
+        "Comment" : "Text message to display on LCD or controller device"
+        }
+    ]        
