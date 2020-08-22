@@ -11,8 +11,8 @@ from influxdb import InfluxDBClient
 INFLUXDB_ADDRESS = '127.0.0.1'
 INFLUXDB_USER = 'mqtt'
 INFLUXDB_PASSWORD = 'mqtt'
-INFLUXDB_DATABASE = 'my_sensors_dev'
-INFLUXDB_DATABASE_Nodes = 'my_sensors_Nodes'
+INFLUXDB_DATABASE = 'my_sensors_dev' # Chage to my_sensors when changing to live version
+INFLUXDB_DATABASE_Nodes = 'my_sensors_Nodes_dev' #  data from nodes when the report to the server. Also internal
 
 MQTT_ADDRESS = '127.0.0.1' 
 MQTT_USER = ''
@@ -101,9 +101,19 @@ def _parse_mqtt_message(topic, payload):
         ## if Command = 2
             #ReqValue()
             #measurement = Req
-        ## if Command = 3
-            #IntValue()
-            #measurement = Int
+        if Command == 3:
+            print("Parsing Int")
+            #getTypeData(LoadPresJson,int(match.group(5)))                
+            measurement =  "Int" 
+            SensorType = "INT FOR TESTING TYPE"
+            Comment = "MysensorsProp.Comment"
+            Node_ID =  match.group(1)
+            Child_ID =  match.group(2)
+            Ack =  match.group(4)
+            print("Parsing Int OUT")
+         
+         ####################################################### Value is float so cant be parsed
+       
         ## if Command = 4
             #StreamValue()
             #measurement = Stream      
@@ -129,6 +139,13 @@ def _parse_mqtt_message(topic, payload):
     print('end')
 
 def _send_sensor_data_to_influxdb(sensor_data):
+    print("_send_sensor_data_to_influxdb")
+    if sensor_data.Command == 3:
+        influxdb_client.switch_database(INFLUXDB_DATABASE_Nodes)
+    else:
+        influxdb_client.switch_database(INFLUXDB_DATABASE)
+
+   
     print("sensor_data.Node_ID",sensor_data.Node_ID)
     print("sensor_data.Child_ID",sensor_data.Child_ID)
     json_body = [
@@ -160,7 +177,10 @@ def _init_influxdb_database():
     databases = influxdb_client.get_list_database()
     if len(list(filter(lambda x: x['name'] == INFLUXDB_DATABASE, databases))) == 0:
         influxdb_client.create_database(INFLUXDB_DATABASE)
-        print("created a database")
+        print("created a database", INFLUXDB_DATABASE)
+    if len(list(filter(lambda x: x['name'] == INFLUXDB_DATABASE_Nodes, databases))) == 0:
+        influxdb_client.create_database(INFLUXDB_DATABASE_Nodes)
+        print("created a database", INFLUXDB_DATABASE_Nodes)
     influxdb_client.switch_database(INFLUXDB_DATABASE)
 
 
