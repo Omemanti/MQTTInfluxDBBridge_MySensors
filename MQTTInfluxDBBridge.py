@@ -39,13 +39,13 @@ class SensorData(NamedTuple):
     Command: str
     Ack : str
     SensorType : str
-    Comment : str
     value: float
+    Desctription: str
 
 class MySensorClass:
         value = int
         type = str
-        Comment  = str
+        Desctription  = str
 
 MysensorsProp = MySensorClass()
 
@@ -54,7 +54,7 @@ def getTypeData(mysensorsValue_json,inctype):
         for typenr in mysensorsValue_json:
                 if typenr["value"] == inctype:
                         MysensorsProp.type=typenr["type"]
-                        MysensorsProp.Comment=typenr["Comment"]
+                        MysensorsProp.Desctription=typenr["Desctription"]
                         return
 
 
@@ -67,10 +67,14 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     """The callback for when a PUBLISH message is received from the server."""
     print(msg.topic + ' ' + str(msg.payload))
+    print('on_message')
     sensor_data = _parse_mqtt_message(msg.topic, msg.payload.decode('utf-8'))
     if sensor_data is not None:
         _send_sensor_data_to_influxdb(sensor_data)
 
+
+
+## parsing the message, and fill the "class SensorData(NamedTuple):" These variables have to be loaded to send fill the Json of "def _send_sensor_data_to_influxdb(sensor_data):"
 
 def _parse_mqtt_message(topic, payload):
     print('parse loop')
@@ -87,29 +91,37 @@ def _parse_mqtt_message(topic, payload):
             #PresValue()
             #measurement = Pers
         if Command == 1:
-            print("Parsing Pres")
+            print("Parsing Set")
             getTypeData(LoadPresJson,int(match.group(5)))                
-            measurement =  "Pres" 
+            measurement =  "Set" 
             SensorType = MysensorsProp.type
-            Comment = MysensorsProp.Comment
             Node_ID =  match.group(1)
             Child_ID =  match.group(2)
             Ack =  match.group(4)
+            Desctription = str(MysensorsProp.Desctription)
+            value = payload
 
-            #SetValue()
-            #measurement = Set
-        ## if Command = 2
-            #ReqValue()
-            #measurement = Req
+        if Command == 2:
+            print("Parsing Req")
+            getTypeData(LoadPresJson,int(match.group(5)))                
+            measurement =  "Req" 
+            SensorType = MysensorsProp.type
+            Node_ID =  match.group(1)
+            Child_ID =  match.group(2)
+            Ack =  match.group(4)
+            Desctription = str(MysensorsProp.Desctription)
+            value = payload
+
         if Command == 3:
             print("Parsing Int")
             #getTypeData(LoadPresJson,int(match.group(5)))                
             measurement =  "Int" 
             SensorType = "INT FOR TESTING TYPE"
-            Comment = "MysensorsProp.Comment"
             Node_ID =  match.group(1)
             Child_ID =  match.group(2)
             Ack =  match.group(4)
+            Desctription = str(payload)
+            value = "1"
             print("Parsing Int OUT")
          
          ####################################################### Value is float so cant be parsed
@@ -125,15 +137,14 @@ def _parse_mqtt_message(topic, payload):
         
         
         
-        value = payload
         time = datetime.datetime.now()
         print(time)
         time.strftime('%l:%M%p %Z on %b %d, %Y') # ' 1:36PM EDT on Oct 18, 2010'
-        print('DATA_STORED: measurement: ',measurement, " Node_ID: ", Node_ID," : ", Child_ID," - ", Command," - ", Ack," - ", SensorType," - ", float(value) , " - ", Comment)
+        print('DATA_STORED: measurement: ',measurement, " Node_ID: ", Node_ID," : ", Child_ID," - ", Command," - ", Ack," - ", SensorType," - ", float(value) , " - ", Desctription )
 
         if measurement == 'status':
             return None
-        return SensorData(measurement, Node_ID, Child_ID, Command, Ack, SensorType, Comment, float(value))
+        return SensorData(measurement, Node_ID, Child_ID, Command, Ack, SensorType, float(value), Desctription)
     else:   
         return None
     print('end')
@@ -159,7 +170,7 @@ def _send_sensor_data_to_influxdb(sensor_data):
                 'Command': sensor_data.Command,
                 'Ack': sensor_data.Ack,
                 'SensorType' : sensor_data.SensorType,
-                'Comment' : sensor_data.Comment
+                'Desctription' : sensor_data.Desctription
             },
             "fields": {
                 'value': sensor_data.value,
