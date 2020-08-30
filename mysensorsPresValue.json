@@ -1,293 +1,60 @@
 [
-        {
-        "value":0,
-        "type" : "V_TEMP",
-        "Desctription" : "Temperature"
-        },
-        {
-        "value":1,
-        "type" : "V_HUM",
-        "Desctription" : "Humidity"
-        },
-        {
-        "value":2,
-        "type" : "V_STATUS",
-        "Desctription" : "Binary status. 0=off 1=on"
-        },
-        {
-        "value":3,
-        "type" : "V_PERCENTAGE",
-        "Desctription" : "Percentage value. 0-100 (%)"
-        },
-        {
-        "value":4,
-        "type" : "V_PRESSURE",
-        "Desctription" : "Atmospheric Pressure"
-        },
-        {
-        "value":5,
-        "type" : "V_FORECAST",
-        "Desctription" : "Whether forecast"
-        },
-        {
-        "value":6,
-        "type" : "V_RAIN",
-        "Desctription" : "Amount of rain"
-        },
-        {
-        "value":7,
-        "type" : "V_RAINRATE",
-        "Desctription" : "Rate of rain"
-        },
-        {
-        "value":8,
-        "type" : "V_WIND",
-        "Desctription" : "Windspeed"
-        },
-                {
-        "value":9,
-        "type" : "V_GUST",
-        "Desctription" : "Gust"
-        },
-                {
-        "value":10,
-        "type" : "V_DIRECTION",
-        "Desctription" : "Wind direction 0-360 (degrees)"
-        },
-                {
-        "value":11,
-        "type" : "V_UV",
-        "Desctription" : "UV_light_level"
-        },
-                {
-        "value":12,
-        "type" : "V_WEIGHT",
-        "Desctription" : "Weight"
-        },
-                {
-        "value":13,
-        "type" : "V_DISTANCE",
-        "Desctription" : "Distance"
-        },
- 
-        {
-        "value":13,
-        "type" : "V_DISTANCE",
-        "Desctription" : "Distance"
-        },
-        {
-        "value":14,
-        "type" : "V_IMPEDANCE",
-        "Desctription" : "Impedance value"
-        },
-        {
-        "value":15,
-        "type" : "V_ARMED",
-        "Desctription" : "Armed status of a security sensor. 1=Armed, 0=Bypassed"
-        },
-        {
-        "value":16,
-        "type" : "V_TRIPPED",
-        "Desctription" : "Tripped status of a security sensor"
-        },
-        {
-        "value":17,
-        "type" : "V_WATT",
-        "Desctription" : "Watt value for power meters"
-        },
-        {
-        "value":18,
-        "type" : "V_KWH",
-        "Desctription" : "Accumulated number of KWH for a power meter"
-        },
-        {
-        "value":19,
-        "type" : "V_SCENE_ON",
-        "Desctription" : "Turn on a scene"
-        },
-        {
-        "value":20,
-        "type" : "V_SCENE_OFF",
-        "Desctription" : "Turn of a scene"
-        },
-        {
-        "value":21,
-        "type" : "V_HVAC_FLOW_STATE",
-        "Desctription" : "Mode of header. One of Off, HeatOn, CoolOn, or AutoChangeOver"
-        },
-        {
-        "value":22,
-        "type" : "V_HVAC_SPEED",
-        "Desctription" : "HVAC/Heater fan speed (Min, Normal, Max, Auto)"
-        },
-        {
-        "value":23,
-        "type" : "V_LIGHT_LEVEL",
-        "Desctription" : "Uncalibrated light level. 0-100%. Use V_LEVEL for light level in lux."
-        },        
-        {
-        "value":24,
-        "type" : "V_VAR1",
-        "Desctription" : "Custom value"
-        },
-        {
-        "value":25,
-        "type" : "V_VAR2",
-        "Desctription" : "Custom value"
-        },
-        {
-        "value":26,
-        "type" : "V_VAR3",
-        "Desctription" : "Custom value"
-        },
-        {
-        "value":27,
-        "type" : "V_VAR4",
-        "Desctription" : "Custom value"
-        },
-        {
-        "value":28,
-        "type" : "V_VAR5",
-        "Desctription" : "Custom value"
-        },
-        {
-        "value":29,
-        "type" : "V_UP",
-        "Desctription" : "Window covering. Up."
-        },
-        {
-        "value":30,
-        "type" : "V_DOWN",
-        "Desctription" : "Window covering. Down"
-        },
-        {
-        "value":31,
-        "type" : "V_STOP",
-        "Desctription" : "Window covering. Stop."
-        },
-        {
-        "value":32,
-        "type" : "V_IR_SEND",
-        "Desctription" : "Send out an IR-command"
-        },
-        {
-        "value":33,
-        "type" : "V_IR_RECEIVE",
-        "Desctription" : "This message contains a received IR-command"
-        },        
-        {
-        "value":34,
-        "type" : "V_FLOW",
-        "Desctription" : "Flow of water/gas (in meter)"
-        },
-        {
-        "value":35,
-        "type" : "V_VOLUME",
-        "Desctription" : "Water/gas volume"
-        },
-        {
-        "value":36,
-        "type" : "V_LOCK_STATUS",
-        "Desctription" : "Set or get lock status. 1=Locked, 0=Unlocked"
-        },
-        {
-        "value":37,
-        "type" : "V_LEVEL",
-        "Desctription" : "Used for sending level-value"
-        },
-        {
-        "value":38,
-        "type" : "V_VOLTAGE",
-        "Desctription" : "Voltage level"
-        },
-        {
-        "value":39,
-        "type" : "V_CURRENT",
-        "Desctription" : "Current level"
-        },
-        {
-        "value":40,
-        "type" : "V_RGB",
-        "Desctription" : "RGB value transmitted as ASCII hex string (I.e ff0000 for red)"
-        },
-        {
-        "value":41,
-        "type" : "V_RGBW",
-        "Desctription" : "RGBW value transmitted as ASCII hex string (I.e ff0000ff for red + full white)"
-        },
-        {
-        "value":42,
-        "type" : "V_ID",
-        "Desctription" : "Optional unique sensor id (e.g. OneWire DS1820b ids)"
-        },
-        {
-        "value":43,
-        "type" : "V_UNIT_PREFIX",
-        "Desctription" : "Allows sensors to send in a string representing the unit prefix to be displayed in GUI. This is not parsed by controller! E.g. cm, m, km, inch."
-        },
-        {
-        "value":44,
-        "type" : "V_HVAC_SETPOINT_COOL",
-        "Desctription" : "HVAC cold setpoint"
-        },
-        {
-        "value":45,
-        "type" : "V_HVAC_SETPOINT_HEAT",
-        "Desctription" : "HVAC/Heater setpoint"
-        },
-        {
-        "value":46,
-        "type" : "V_HVAC_FLOW_MODE",
-        "Desctription" : "Flow mode for HVAC (Auto, ContinuousOn, PeriodicOn)"
-        },
-        {
-        "value":47,
-        "type" : "V_TEXT",
-        "Desctription" : "Text message to display on LCD or controller device"
-        },
-        {
-        "value":48,
-        "type" : "V_CUSTOM",
-        "Desctription" : "Custom messages used for controller/inter node specific commands, preferably using S_CUSTOM device type."
-        },
-        {
-        "value":49,
-        "type" : "V_POSITION",
-        "Desctription" : "GPS position and altitude. Payload: latitude;longitude;altitude(m). E.g. 55.722526;13.017972;18"
-        },
-        {
-        "value":50,
-        "type" : "V_IR_RECORD",
-        "Desctription" : "Record IR codes S_IR for playback"
-        },
-        {
-        "value":51,
-        "type" : "V_PH",
-        "Desctription" : "Water PH"
-        },
-        {
-        "value":52,
-        "type" : "V_ORP",
-        "Desctription" : "Water ORP : redox potential in mV"
-        },
-        {
-        "value":53,
-        "type" : "V_EC",
-        "Desctription" : "Water electric conductivity μS/cm (microSiemens/cm)"
-        },
-        {
-        "value":54,
-        "type" : "V_VAR",
-        "Desctription" : "Reactive power: volt-ampere reactive (var)"
-        },
-        {
-        "value":55,
-        "type" : "V_VA",
-        "Desctription" : "Apparent power: volt-ampere (VA)"
-        },
-        {
-        "value":56,
-        "type" : "V_POWER_FACTOR",
-        "Desctription" : "Ratio of real power to apparent power: floating point value in the range [-1,..,1]"
-        }
-    ]        
+{        "value":0,        "type" : "V_TEMP",           "Desctription" : "Temperature"        },
+{        "value":1,        "type" : "V_HUM",            "Desctription" : "Humidity"        },
+{        "value":2,        "type" : "V_STATUS",         "Desctription" : "Binary status. 0=off 1=on"        },
+{        "value":3,        "type" : "V_PERCENTAGE",     "Desctription" : "Percentage value. 0-100 (%)"        },
+{        "value":4,        "type" : "V_PRESSURE",       "Desctription" : "Atmospheric Pressure"        },
+{        "value":5,        "type" : "V_FORECAST",       "Desctription" : "Whether forecast"        },
+{        "value":6,        "type" : "V_RAIN",           "Desctription" : "Amount of rain"        },
+{        "value":7,        "type" : "V_RAINRATE",       "Desctription" : "Rate of rain"        },
+{        "value":8,        "type" : "V_WIND",           "Desctription" : "Windspeed"        },
+{        "value":9,        "type" : "V_GUST",           "Desctription" : "Gust"        },
+{        "value":10,       "type" : "V_DIRECTION",      "Desctription" : "Wind direction 0-360 (degrees)"        },
+{        "value":11,       "type" : "V_UV",             "Desctription" : "UV_light_level"        },
+{        "value":12,       "type" : "V_WEIGHT",         "Desctription" : "Weight"        },
+{        "value":13,       "type" : "V_DISTANCE",       "Desctription" : "Distance"        },
+{        "value":13,       "type" : "V_DISTANCE",       "Desctription" : "Distance"        },
+{        "value":14,       "type" : "V_IMPEDANCE",      "Desctription" : "Impedance value"        },
+{        "value":15,       "type" : "V_ARMED",          "Desctription" : "Armed status of a security sensor. 1=Armed, 0=Bypassed"        },
+{        "value":16,       "type" : "V_TRIPPED",        "Desctription" : "Tripped status of a security sensor"        },
+{        "value":17,       "type" : "V_WATT",           "Desctription" : "Watt value for power meters"        },
+{        "value":18,       "type" : "V_KWH",            "Desctription" : "Accumulated number of KWH for a power meter"        },
+{        "value":19,       "type" : "V_SCENE_ON",       "Desctription" : "Turn on a scene"        },
+{        "value":20,       "type" : "V_SCENE_OFF",      "Desctription" : "Turn of a scene"        },
+{        "value":21,       "type" : "V_HVAC_FLOW_STATE","Desctription" : "Mode of header. One of Off, HeatOn, CoolOn, or AutoChangeOver"        },
+{        "value":22,       "type" : "V_HVAC_SPEED",     "Desctription" : "HVAC/Heater fan speed (Min, Normal, Max, Auto)"        },
+{        "value":23,       "type" : "V_LIGHT_LEVEL",    "Desctription" : "Uncalibrated light level. 0-100%. Use V_LEVEL for light level in lux."        },        
+{        "value":24,       "type" : "V_VAR1",           "Desctription" : "Custom value"        },
+{        "value":25,       "type" : "V_VAR2",           "Desctription" : "Custom value"        },
+{        "value":26,       "type" : "V_VAR3",           "Desctription" : "Custom value"        },
+{        "value":27,       "type" : "V_VAR4",           "Desctription" : "Custom value"        },
+{        "value":28,       "type" : "V_VAR5",           "Desctription" : "Custom value"        },
+{        "value":29,       "type" : "V_UP",             "Desctription" : "Window covering. Up."        },
+{        "value":30,       "type" : "V_DOWN",           "Desctription" : "Window covering. Down"        },
+{        "value":31,       "type" : "V_STOP",           "Desctription" : "Window covering. Stop."        },
+{        "value":32,       "type" : "V_IR_SEND",        "Desctription" : "Send out an IR-command"        },
+{        "value":33,       "type" : "V_IR_RECEIVE",     "Desctription" : "This message contains a received IR-command"        },        
+{        "value":34,       "type" : "V_FLOW",           "Desctription" : "Flow of water/gas (in meter)"        },
+{        "value":35,       "type" : "V_VOLUME",         "Desctription" : "Water/gas volume"        },
+{        "value":36,       "type" : "V_LOCK_STATUS",    "Desctription" : "Set or get lock status. 1=Locked, 0=Unlocked"        },
+{        "value":37,       "type" : "V_LEVEL",          "Desctription" : "Used for sending level-value"        },
+{        "value":38,       "type" : "V_VOLTAGE",        "Desctription" : "Voltage level"        },
+{        "value":39,       "type" : "V_CURRENT",        "Desctription" : "Current level"        },
+{        "value":40,       "type" : "V_RGB",            "Desctription" : "RGB value transmitted as ASCII hex string (I.e ff0000 for red)"        },
+{        "value":41,       "type" : "V_RGBW",           "Desctription" : "RGBW value transmitted as ASCII hex string (I.e ff0000ff for red + full white)"        },
+{        "value":42,       "type" : "V_ID",             "Desctription" : "Optional unique sensor id (e.g. OneWire DS1820b ids)"        },
+{        "value":43,       "type" : "V_UNIT_PREFIX",    "Desctription" : "Allows sensors to send in a string representing the unit prefix to be displayed in GUI. This is not parsed by controller! E.g. cm, m, km, inch."        },
+{        "value":44,       "type" : "V_HVAC_SETPOINT_COOL",        "Desctription" : "HVAC cold setpoint"        },
+{        "value":45,       "type" : "V_HVAC_SETPOINT_HEAT",        "Desctription" : "HVAC/Heater setpoint"        },
+{        "value":46,       "type" : "V_HVAC_FLOW_MODE",  "Desctription" : "Flow mode for HVAC (Auto, ContinuousOn, PeriodicOn)"        },
+{        "value":47,       "type" : "V_TEXT",           "Desctription" : "Text message to display on LCD or controller device"        },
+{        "value":48,       "type" : "V_CUSTOM",         "Desctription" : "Custom messages used for controller/inter node specific commands, preferably using S_CUSTOM device type."        },
+{        "value":49,       "type" : "V_POSITION",       "Desctription" : "GPS position and altitude. Payload: latitude;longitude;altitude(m). E.g. 55.722526;13.017972;18"        },
+{        "value":50,       "type" : "V_IR_RECORD",      "Desctription" : "Record IR codes S_IR for playback"        },
+{        "value":51,       "type" : "V_PH",             "Desctription" : "Water PH"        },
+{        "value":52,       "type" : "V_ORP",            "Desctription" : "Water ORP : redox potential in mV"        },
+{        "value":53,       "type" : "V_EC",             "Desctription" : "Water electric conductivity μS/cm (microSiemens/cm)"       },
+{        "value":54,       "type" : "V_VAR",            "Desctription" : "Reactive power: volt-ampere reactive (var)"        },
+{        "value":55,       "type" : "V_VA",             "Desctription" : "Apparent power: volt-ampere (VA)"        },
+{        "value":56,       "type" : "V_POWER_FACTOR",   "Desctription" : "Ratio of real power to apparent power: floating point value in the range [-1,..,1]"        }
+]        
