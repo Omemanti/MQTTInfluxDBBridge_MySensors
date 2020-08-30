@@ -24,12 +24,13 @@ MQTT_CLIENT_ID = 'MQTTInfluxDBBridge'
 influxdb_client = InfluxDBClient(INFLUXDB_ADDRESS, 8086 , INFLUXDB_USER, INFLUXDB_PASSWORD, None)
 
 print("dev")
-
 ## Json
 ## Load JSon Presentation values
-OpenPresJson = open("mysensorsPresValue.json")
-LoadPresJson = json.load(OpenPresJson)
-
+LoadPresJson = json.load(open("mysensorsPresValue.json"))
+LoadIntJson = json.load(open("mysensorsIntValue.json"))
+#print(LoadPresJson)
+#print("#################################")
+#print(LoadIntJson)
 
 ##Classes and objects
 class SensorData(NamedTuple):
@@ -114,7 +115,7 @@ def _parse_mqtt_message(topic, payload):
 
         if Command == 3:
             print("Parsing Int")
-            #getTypeData(LoadPresJson,int(match.group(5)))                
+            getTypeData(LoadPresJson,int(match.group(5)))                
             measurement =  "Int" 
             SensorType = "INT FOR TESTING TYPE"
             Node_ID =  match.group(1)
