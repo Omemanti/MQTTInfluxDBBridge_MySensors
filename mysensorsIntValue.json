@@ -1,28 +1,18 @@
 [
     {
-    "value":0,
-    "type" : "I_BATTERY_LEVEL",
-    "Desctription" : "Use this to report the battery level (in percent 0-100)."
+    "value":0,    "type" : "I_BATTERY_LEVEL",    "Desctription" : "Use this to report the battery level (in percent 0-100)."
     },
     {
-    "value":1,
-    "type" : "I_TIME",
-    "Desctription" : "Sensors can request the current time from the Controller using this message. The time will be reported as the seconds since 1970"
+    "value":1,    "type" : "I_TIME",    "Desctription" : "Sensors can request the current time from the Controller using this message. The time will be reported as the seconds since 1970"
     },
     {
-    "value":2,
-    "type" : "V_STATUS",
-    "Desctription" : "Binary status. 0=off 1=on"
+    "value":2,    "type" : "V_STATUS",    "Desctription" : "Binary status. 0=off 1=on"
     },
     {
-    "value":3,
-    "type" : "V_PERCENTAGE",
-    "Desctription" : "Percentage value. 0-100 (%)"
+    "value":3,    "type" : "V_PERCENTAGE",    "Desctription" : "Percentage value. 0-100 (%)"
     },
     {
-    "value":4,
-    "type" : "V_PRESSURE",
-    "Desctription" : "Atmospheric Pressure"
+    "value":4,    "type" : "V_PRESSURE",    "Desctription" : "Atmospheric Pressure"
     },
     {
     "value":5,
