@@ -26,9 +26,9 @@ influxdb_client = InfluxDBClient(INFLUXDB_ADDRESS, 8086 , INFLUXDB_USER, INFLUXD
 print("dev")
 ## Json
 ## Load JSon Presentation values
-LoadPresJson = json.load(open("mysensorsPresValue.json"))
+LoadSetJson = json.load(open("mysensorsSetValue.json"))
 LoadIntJson = json.load(open("mysensorsIntValue.json"))
-#print(LoadPresJson)
+#print(LoadSetJson)
 #print("#################################")``
 #print(LoadIntJson)
 
@@ -93,7 +93,7 @@ def _parse_mqtt_message(topic, payload):
             #measurement = Pers
         if Command == 1:
             print("Parsing Set")
-            getTypeData(LoadPresJson,int(match.group(5)))                
+            getTypeData(LoadSetJson,int(match.group(5)))                
             measurement =  "Set" 
             SensorType = MysensorsProp.type
             Node_ID =  match.group(1)
@@ -104,7 +104,7 @@ def _parse_mqtt_message(topic, payload):
 
         if Command == 2:
             print("Parsing Req")
-            getTypeData(LoadPresJson,int(match.group(5)))                
+            getTypeData(LoadSetJson,int(match.group(5)))                
             measurement =  "Req" 
             SensorType = MysensorsProp.type
             Node_ID =  match.group(1)
