@@ -115,9 +115,9 @@ def _parse_mqtt_message(topic, payload):
 
         if Command == 3:
             print("Parsing Int")
-            getTypeData(LoadPresJson,int(match.group(5)))                
+            getTypeData(LoadIntJson,int(match.group(5)))                
             measurement =  "Int" 
-            SensorType = "INT FOR TESTING TYPE"
+            SensorType = MysensorsProp.type
             Node_ID =  match.group(1)
             Child_ID =  match.group(2)
             Ack =  match.group(4)
