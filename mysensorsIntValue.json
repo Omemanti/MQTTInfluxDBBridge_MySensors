@@ -1,168 +1,37 @@
 [
-    {
-    "value":0,    "type" : "I_BATTERY_LEVEL",    "Desctription" : "Use this to report the battery level (in percent 0-100)."
-    },
-    {
-    "value":1,    "type" : "I_TIME",    "Desctription" : "Sensors can request the current time from the Controller using this message. The time will be reported as the seconds since 1970"
-    },
-    {
-    "value":2,    "type" : "V_STATUS",    "Desctription" : "Binary status. 0=off 1=on"
-    },
-    {
-    "value":3,    "type" : "V_PERCENTAGE",    "Desctription" : "Percentage value. 0-100 (%)"
-    },
-    {
-    "value":4,    "type" : "V_PRESSURE",    "Desctription" : "Atmospheric Pressure"
-    },
-    {
-    "value":5,
-    "type" : "V_FORECAST",
-    "Desctription" : "Whether forecast"
-    },
-    {
-    "value":6,
-    "type" : "V_RAIN",
-    "Desctription" : "Amount of rain"
-    },
-    {
-    "value":7,
-    "type" : "V_RAINRATE",
-    "Desctription" : "Rate of rain"
-    },
-    {
-    "value":8,
-    "type" : "V_WIND",
-    "Desctription" : "Windspeed"
-    },
-            {
-    "value":9,
-    "type" : "V_GUST",
-    "Desctription" : "Gust"
-    },
-            {
-    "value":10,
-    "type" : "V_DIRECTION",
-    "Desctription" : "Wind direction 0-360 (degrees)"
-    },
-            {
-    "value":11,
-    "type" : "V_UV",
-    "Desctription" : "UV_light_level"
-    },
-            {
-    "value":12,
-    "type" : "V_WEIGHT",
-    "Desctription" : "Weight"
-    },
-            {
-    "value":13,
-    "type" : "V_DISTANCE",
-    "Desctription" : "Distance"
-    },
-
-    {
-    "value":13,
-    "type" : "V_DISTANCE",
-    "Desctription" : "Distance"
-    },
-    {
-    "value":14,
-    "type" : "V_IMPEDANCE",
-    "Desctription" : "Impedance value"
-    },
-    {
-    "value":15,
-    "type" : "V_ARMED",
-    "Desctription" : "Armed status of a security sensor. 1=Armed, 0=Bypassed"
-    },
-    {
-    "value":16,
-    "type" : "V_TRIPPED",
-    "Desctription" : "Tripped status of a security sensor"
-    },
-    {
-    "value":17,
-    "type" : "V_WATT",
-    "Desctription" : "Watt value for power meters"
-    },
-    {
-    "value":18,
-    "type" : "V_KWH",
-    "Desctription" : "Accumulated number of KWH for a power meter"
-    },
-    {
-    "value":19,
-    "type" : "V_SCENE_ON",
-    "Desctription" : "Turn on a scene"
-    },
-    {
-    "value":20,
-    "type" : "V_SCENE_OFF",
-    "Desctription" : "Turn of a scene"
-    },
-    {
-    "value":21,
-    "type" : "V_HVAC_FLOW_STATE",
-    "Desctription" : "Mode of header. One of Off, HeatOn, CoolOn, or AutoChangeOver"
-    },
-    {
-    "value":22,
-    "type" : "V_HVAC_SPEED",
-    "Desctription" : "HVAC/Heater fan speed (Min, Normal, Max, Auto)"
-    },
-    {
-    "value":23,
-    "type" : "V_LIGHT_LEVEL",
-    "Desctription" : "Uncalibrated light level. 0-100%. Use V_LEVEL for light level in lux."
-    },        
-    {
-    "value":24,
-    "type" : "V_VAR1",
-    "Desctription" : "Custom value"
-    },
-    {
-    "value":25,
-    "type" : "V_VAR2",
-    "Desctription" : "Custom value"
-    },
-    {
-    "value":26,
-    "type" : "V_VAR3",
-    "Desctription" : "Custom value"
-    },
-    {
-    "value":27,
-    "type" : "V_VAR4",
-    "Desctription" : "Custom value"
-    },
-    {
-    "value":28,
-    "type" : "V_VAR5",
-    "Desctription" : "Custom value"
-    },
-    {
-    "value":29,
-    "type" : "V_UP",
-    "Desctription" : "Window covering. Up."
-    },
-    {
-    "value":30,
-    "type" : "V_DOWN",
-    "Desctription" : "Window covering. Down"
-    },
-    {
-    "value":31,
-    "type" : "V_STOP",
-    "Desctription" : "Window covering. Stop."
-    },
-    {
-    "value":32,
-    "type" : "V_IR_SEND",
-    "Desctription" : "Send out an IR-command"
-    },
-    {
-    "value":33,
-    "type" : "V_IR_RECEIVE",
-    "Desctription" : "This message contains a received IR-command"
-    }
+{    "value":0,    "type" : "I_BATTERY_LEVEL",    "Desctription" : "Use this to report the battery level (in percent 0-100)."    },
+{    "value":1,    "type" : "I_TIME",    "Desctription" : "Sensors can request the current time from the Controller using this message. The time will be reported as the seconds since 1970"},
+{    "value":2,    "type" : "V_STATUS",    "Desctription" : "Binary status. 0=off 1=on"    },
+{    "value":3,    "type" : "V_PERCENTAGE",    "Desctription" : "Percentage value. 0-100 (%)"    },
+{    "value":4,    "type" : "V_PRESSURE",    "Desctription" : "Atmospheric Pressure"    },
+{    "value":5,    "type" : "V_FORECAST",    "Desctription" : "Whether forecast"    },
+{    "value":6,    "type" : "V_RAIN",    "Desctription" : "Amount of rain"    },
+{    "value":7,    "type" : "V_RAINRATE",    "Desctription" : "Rate of rain"    },
+{    "value":8,    "type" : "V_WIND",    "Desctription" : "Windspeed"    },
+{    "value":9,    "type" : "V_GUST",    "Desctription" : "Gust"    },
+{    "value":10,   "type" : "V_DIRECTION",    "Desctription" : "Wind direction 0-360 (degrees)"    },
+{    "value":11,   "type" : "V_UV",    "Desctription" : "UV_light_level"    },
+{    "value":12,   "type" : "V_WEIGHT",    "Desctription" : "Weight"    },
+{    "value":13,   "type" : "V_DISTANCE",    "Desctription" : "Distance"    },
+{    "value":13,   "type" : "V_DISTANCE",    "Desctription" : "Distance"    },
+{    "value":14,   "type" : "V_IMPEDANCE",    "Desctription" : "Impedance value"    },
+{    "value":15,   "type" : "V_ARMED",    "Desctription" : "Armed status of a security sensor. 1=Armed, 0=Bypassed"    },
+{    "value":16,   "type" : "V_TRIPPED",    "Desctription" : "Tripped status of a security sensor"    },
+{    "value":17,   "type" : "V_WATT",    "Desctription" : "Watt value for power meters"    },
+{    "value":18,   "type" : "V_KWH",    "Desctription" : "Accumulated number of KWH for a power meter"    },
+{    "value":19,   "type" : "V_SCENE_ON",    "Desctription" : "Turn on a scene"    },
+{    "value":20,   "type" : "V_SCENE_OFF",    "Desctription" : "Turn of a scene"    },
+{    "value":21,   "type" : "V_HVAC_FLOW_STATE",    "Desctription" : "Mode of header. One of Off, HeatOn, CoolOn, or AutoChangeOver"    },
+{    "value":22,   "type" : "V_HVAC_SPEED",    "Desctription" : "HVAC/Heater fan speed (Min, Normal, Max, Auto)"    },
+{    "value":23,   "type" : "V_LIGHT_LEVEL",    "Desctription" : "Uncalibrated light level. 0-100%. Use V_LEVEL for light level in lux."    },        
+{    "value":24,   "type" : "V_VAR1",    "Desctription" : "Custom value"    },
+{    "value":25,   "type" : "V_VAR2",    "Desctription" : "Custom value"    },
+{    "value":26,   "type" : "V_VAR3",    "Desctription" : "Custom value"    },
+{    "value":27,   "type" : "V_VAR4",    "Desctription" : "Custom value"    },
+{    "value":28,   "type" : "V_VAR5",    "Desctription" : "Custom value"    },
+{    "value":29,   "type" : "V_UP",    "Desctription" : "Window covering. Up."    },
+{    "value":30,   "type" : "V_DOWN",    "Desctription" : "Window covering. Down"    },
+{    "value":31,   "type" : "V_STOP",    "Desctription" : "Window covering. Stop."    },
+{    "value":32,   "type" : "V_IR_SEND",    "Desctription" : "Send out an IR-command"    },
+{    "value":33,   "type" : "V_IR_RECEIVE",    "Desctription" : "This message contains a received IR-command"    }
 ]        
